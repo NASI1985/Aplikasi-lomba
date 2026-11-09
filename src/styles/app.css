@@ -1,0 +1,534 @@
+/* ===== 1. Dasar halaman ===== */
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  font-family:
+    'Plus Jakarta Sans',
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    sans-serif;
+}
+h1 {
+  font-size: clamp(36px, 7vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -2px;
+  font-weight: 800;
+  margin: 24px 0 16px;
+  max-width: 12em;
+}
+h2 {
+  font-size: clamp(22px, 3.4vw, 30px);
+  letter-spacing: -0.6px;
+  font-weight: 800;
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+p {
+  margin: 0 0 12px;
+}
+.lead {
+  font-size: 18px;
+  color: var(--text-muted);
+  max-width: 40em;
+  margin-bottom: 28px;
+}
+.fineprint {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+}
+.spaced-heading {
+  margin-top: 12px;
+}
+.title-danger {
+  color: var(--danger-text);
+}
+.title-ok {
+  color: var(--primary-text);
+}
+.push-down {
+  margin-top: auto;
+} /* dorong elemen ke dasar kartu */
+
+/* ===== 2. Header & kerangka halaman ===== */
+header {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 9;
+  background: var(--bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  padding: 16px clamp(16px, 4vw, 50px);
+}
+.logo {
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+.logo b {
+  color: var(--primary-text);
+}
+nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+}
+nav a.active {
+  border-color: var(--primary);
+}
+main {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 8px clamp(16px, 4vw, 32px) 48px;
+}
+.grid-2,
+.grid-3 {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 820px) {
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== 3. Kartu ===== */
+.card {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: clamp(18px, 3vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+.card.danger-outline {
+  border: 2px solid var(--danger);
+}
+.panel-primary {
+  background: var(--primary);
+  color: #fff;
+}
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--primary-text);
+}
+.eyebrow.danger {
+  color: var(--danger-text);
+}
+.panel-primary .eyebrow {
+  color: #fff;
+}
+.feature-card {
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 2px solid transparent;
+}
+.feature-card p {
+  flex: 1;
+}
+.feature-card.kenali {
+  background: var(--primary);
+  color: #fff;
+}
+.feature-card.kenali .eyebrow {
+  color: #fff;
+}
+.feature-card.latih {
+  background: var(--surface);
+  border-color: var(--text);
+}
+.feature-card.latih p {
+  color: var(--text-muted);
+}
+.feature-card.bertindak {
+  background: var(--danger-tint);
+  border-color: var(--danger);
+}
+.feature-card.bertindak .eyebrow {
+  color: var(--danger-text);
+}
+
+/* ===== 4. Tombol & pilihan ===== */
+.btn {
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: 13px 16px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  color: #fff;
+  background: var(--primary);
+}
+.btn-outline {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--text);
+}
+.btn-dark {
+  background: var(--dark);
+}
+.btn-danger {
+  background: var(--danger);
+}
+.btn-light {
+  background: #fff;
+  color: #0d6e5d;
+}
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.actions > .btn {
+  flex: 1;
+  min-width: 140px;
+}
+.cluster {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.choice {
+  display: block;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+.choice.selected {
+  background: var(--primary-tint);
+  border-color: var(--primary);
+}
+.pill {
+  border: 0;
+  border-radius: 99px;
+  padding: 7px 16px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  background: var(--bubble);
+  color: var(--text);
+}
+.pill.active {
+  background: var(--dark);
+  color: #fff;
+}
+.btn:focus-visible,
+.choice:focus-visible,
+.pill:focus-visible,
+.scenario-card:focus-visible,
+nav a:focus-visible,
+.text-input:focus-visible {
+  outline: 3px solid var(--primary-text);
+  outline-offset: 2px;
+}
+.text-input {
+  width: 100%;
+  min-height: 170px;
+  resize: vertical;
+  padding: 14px;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--text);
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+}
+
+/* ===== 5. Kotak info, lencana, sorotan ===== */
+.notice {
+  background: var(--warn-bg);
+  color: var(--warn-text);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 14px;
+}
+.notice.danger {
+  background: var(--danger-tint);
+  color: var(--danger-text);
+}
+.tint-box {
+  background: var(--primary-tint);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 15px;
+}
+.tint-box.neutral {
+  background: var(--bubble);
+}
+.tint-box.on-primary {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+.badge {
+  display: inline-block;
+  border-radius: 99px;
+  padding: 5px 14px;
+  font-weight: 700;
+  font-size: 13px;
+  white-space: nowrap;
+  color: #fff;
+}
+.badge.danger {
+  background: var(--danger);
+}
+.badge.warn {
+  background: var(--orange);
+}
+.badge.ok {
+  background: var(--primary);
+}
+.badge.dark {
+  background: var(--dark);
+}
+.badge.light {
+  background: #fff;
+  color: #0d6e5d;
+}
+.badge.translucent {
+  background: rgba(0, 0, 0, 0.3);
+}
+.split-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.text-box {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  font-size: 17px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.text-box.soft {
+  font-size: 15px;
+  background: var(--bubble);
+  border: 0;
+}
+mark {
+  background: var(--mark-warn);
+  color: inherit;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+mark.danger {
+  background: var(--mark-danger);
+}
+.finding {
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+  font-size: 15px;
+}
+.finding:first-of-type {
+  border-top: 0;
+}
+.finding .matched {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+  word-break: break-word;
+}
+.big-number {
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -3px;
+}
+.big-number.medium {
+  font-size: clamp(40px, 7vw, 60px);
+  letter-spacing: -1.5px;
+}
+.link {
+  color: var(--primary-text);
+  font-weight: 700;
+}
+.icon {
+  vertical-align: -3px;
+  margin-right: 6px;
+}
+
+/* ===== 6. Progres & checklist ===== */
+.progress {
+  height: 10px;
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 9px;
+  overflow: hidden;
+}
+.progress i {
+  display: block;
+  height: 100%;
+  background: #fff;
+  border-radius: 9px;
+  transition: width 0.4s;
+}
+.progress.on-light {
+  background: var(--border);
+}
+.progress.on-light i {
+  background: var(--primary);
+}
+.phase {
+  border-left: 5px solid var(--phase-color, var(--primary));
+  padding: 2px 0 2px 14px;
+  margin-bottom: 14px;
+}
+.check-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 6px 0;
+  cursor: pointer;
+  font-size: 15px;
+}
+.check-row input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--primary);
+  margin-top: 1px;
+  flex: none;
+}
+
+/* ===== 7. Latihan: daftar skenario & chat ===== */
+.scenario-card {
+  text-align: left;
+  cursor: pointer;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--text);
+  background: var(--surface);
+  border: 2px solid transparent;
+  border-radius: 16px;
+  padding: 22px;
+}
+.scenario-card.done {
+  border-color: var(--primary);
+}
+.scenario-card h3 {
+  font-size: 19px;
+}
+.scenario-card p {
+  color: var(--text-muted);
+  margin: 0;
+}
+.scenario-card .status {
+  margin-top: auto;
+  font-weight: 700;
+}
+.scenario-card.done .status {
+  color: var(--primary-text);
+}
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 220px;
+}
+.bubble {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: var(--bubble);
+  font-size: 15px;
+  align-self: flex-start;
+  word-break: break-word;
+}
+.bubble.mine {
+  align-self: flex-end;
+  background: var(--primary);
+  color: #fff;
+}
+.bubble b {
+  display: block;
+}
+
+/* ===== 8. Toast ===== */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  background: var(--dark);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 99px;
+  font-weight: 600;
+  font-size: 14px;
+  z-index: 20;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.toast.show {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

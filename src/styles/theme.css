@@ -1,0 +1,43 @@
+/* WARNA & TEMA. Ubah warna aplikasi cukup di file ini. */
+:root {
+  --bg: #f8f9fa; /* latar halaman */
+  --surface: #ffffff; /* latar kartu */
+  --text: #1a2b27; /* teks utama & warna gelap */
+  --text-muted: #4a5d58;
+  --primary: #0d6e5d; /* hijau teal utama */
+  --primary-text: #0d6e5d; /* hijau untuk teks di atas latar terang */
+  --primary-tint: #e3f1ef;
+  --danger: #c02626; /* merah darurat */
+  --danger-text: #c02626;
+  --danger-tint: #fde9e7;
+  --orange: #b45309;
+  --border: #d9dedb;
+  --dark: #1a2b27; /* tombol gelap */
+  --bubble: #eef0ee; /* gelembung chat */
+  --warn-bg: #fff1d6; /* kotak peringatan kuning */
+  --warn-text: #6b4a0a;
+  --mark-warn: #ffd9a0; /* sorotan kuning */
+  --mark-danger: #f6b5ad; /* sorotan merah */
+}
+
+/* Mode gelap otomatis mengikuti pengaturan perangkat */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1a17;
+    --surface: #17241f;
+    --text: #eaf2ef;
+    --text-muted: #a9bdb6;
+    --primary-text: #4fd1b8;
+    --primary-tint: #17342e;
+    --danger-text: #ff8f85;
+    --danger-tint: #3a1b19;
+    --orange: #f0a050;
+    --border: #2b3d37;
+    --dark: #2b4139;
+    --bubble: #22332d;
+    --warn-bg: #3a2e12;
+    --warn-text: #f1d9a0;
+    --mark-warn: #6e5220;
+    --mark-danger: #7a2f2a;
+  }
+}
